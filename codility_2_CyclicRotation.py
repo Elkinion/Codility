@@ -14,11 +14,19 @@ that, given an array A consisting of N integers and an integer K, returns the ar
 
 def solution(A, K):
     N=len(A) #Number of integers in the array
+    if N==0:
+        return([])
     K=K%N #If k is too big we divide to make the function more eficient
     if K==0: #if it is 0 we dont need to move anything
-        return(0)
+        return(A)
     else: #rotate
-        A=A[K-1:N]+A[0:K-1]
+        A=A[N-K:N]+A[0:N-K]
         return(A)
     
 
+
+A = [3, 8, 9, 7, 6]
+K = 3
+
+
+solution(A, K)

@@ -20,7 +20,7 @@ def solution(A, K):
     if K==0: #if it is 0 we dont need to move anything
         return(A)
     else: #rotate
-        A=A[N-K:N]+A[0:N-K]
+        A=A[N-K:N]+A[0:N-K] #N-K for the last K numbers of the array
         return(A)
     
 

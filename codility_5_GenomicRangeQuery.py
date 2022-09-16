@@ -43,7 +43,7 @@ P[K] ≤ Q[K], where 0 ≤ K < M;
 string S consists only of upper-case English letters A, C, G, T.
 """
 
-#doesnt give 100%
+#doesnt give 100
 def solution(S, P, Q):
     dictt = {"A": 1,"C": 2,"G": 3, "T": 4}
     S=[dictt[char] for char in S]

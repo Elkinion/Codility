@@ -57,3 +57,25 @@ def solution(S, P, Q):
 S,P,Q='CAGCCTA', [2, 5, 0], [4, 5, 6]
 
 solution(S, P, Q)
+
+
+# this solution gives 100% the most important part is take out substring out of the ifs and replace "" for ''
+def solution(S, P, Q):
+    res=[0]*len(P)
+    for i in range(0,len(P)):
+        substring=S[P[i]:Q[i]+1]
+        if 'A' in substring:
+            res[i]=1
+        elif 'C' in substring:
+            res[i]=2
+        elif 'G' in substring:
+            res[i]=3
+        elif 'T' in substring:
+            res[i]=4
+    return(res)
+
+
+
+S,P,Q='CAGCCTA', [2, 5, 0], [4, 5, 6]
+
+solution(S, P, Q)

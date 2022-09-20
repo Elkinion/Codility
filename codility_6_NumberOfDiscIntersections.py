@@ -33,32 +33,40 @@ Given array A shown above, the function should return 11, as explained above.
 
 Write an efficient algorithm for the following assumptions:
 """
+
+
 def solution(A):
     n=len(A)
+    if n<=1: ## get rid of empty cases
+        return(0)
     L=[0]*n
     R=[0]*n
+    ### separate the start and the end of the circles, not that it doesnt matter how you draw the circles after you have this done
     for i in range(n):
         L[i]=i-A[i]
         R[i]=i+A[i]
     L.sort()
     R.sort()
-    counter=0
+    
+    #### now the freaking loop. count the number of open circles everytime you close one. pay attention to points where a circle starts and ends another at the same time
     posL=0
-    for posR in range(0,n):
-        counter+=1
+    resultado=0
+    for posR in range(n):
         if posL==n:
-            break
-        while L[posL]<R[posR]:
-            print(L[posL], R[posR])
+            next
+        if L[posL]>R[posR]:
+            next
+        while L[posL]<=R[posR] and posL<n-1:
             posL+=1
-            counter+=1
-            if posL==n:
+            if L[posL]>R[posR]:
+                posL-=1 ###dont pass to the next until you close the last one.
                 break
-    return(counter-1)
-        
-A=[1,5,2,1,4,0]
+        if resultado>10000000:
+            return(-1)
+        resultado+=(posL-posR)
 
-solution(A)
+        #print(resultado)
+        #print(L,R,L[posL],R[posR], posL,posR)
 
-
-
+    return(resultado)
+    pass

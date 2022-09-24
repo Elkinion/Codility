@@ -102,7 +102,8 @@ def solution(A):
         pos=0
         while pos<=n:
             if pos+i==n:
-                result=max(result,n//i)
+                if Next[pos+i-1]!=Next[pos]:
+                    result=max(result,n//i)
                 break
             elif Next[pos]!=Next[pos+i]:
                 print(pos,i,Next[pos],Next[pos+i])

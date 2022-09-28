@@ -34,12 +34,14 @@ Write an efficient algorithm for the following assumptions:
 Z is an integer within the range [1..6,000];
 each element of arrays A and B is an integer within the range [1..2,147,483,647].
 """
+## the usual greatest common divisor 
 def gcd(A, B):
     if A%B==0:
         return(B)
     else:
         return(gcd(B, A%B))
 
+## now we take all the primes on the greatest common divisor from both A and B, if they become 1 they have the same primes
 def sameprimes(A, B):
     value=gcd(A,B)
     while gcd(A,value)!=1:
@@ -52,7 +54,7 @@ def sameprimes(A, B):
     else:
         return(False)
 
-
+## loop over the array and gg wp
 def solution(A, B):
     result=0
     n=len(A)

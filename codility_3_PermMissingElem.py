@@ -31,8 +31,18 @@ the elements of A are all distinct;
 each element of array A is an integer within the range [1..(N + 1)].
 """
 
-A= [2, 3, 1, 5]
 
+### with triangular number
+def sol(A):
+    n=len(A)
+    suma=0
+    for i in range(n):
+        suma+=A[i]
+    result=(n+1)*(n+2)//2-suma
+    return(result)
+    pass
+
+### same logic with product
 def solution(A):
     n=len(A)
     result=1
@@ -45,14 +55,7 @@ def solution(A):
 
 
 
+A= [2, 3, 1, 5]
 
-def sol(A):
-    n=len(A)
-    suma=0
-    for i in range(n):
-        suma+=A[i]
-    result=(n+1)*(n+2)//2-suma
-    return(result)
-    pass
 
 sol(A)

@@ -59,7 +59,7 @@ S,P,Q='CAGCCTA', [2, 5, 0], [4, 5, 6]
 solution(S, P, Q)
 
 
-# this solution gives 100% the most important part is take out substring out of the ifs and replace "" for ''
+# this solution gives 100% the most important part is take out substring out of the ifs and replace "" for '' double quotes for single quotes
 def solution(S, P, Q):
     res=[0]*len(P)
     for i in range(0,len(P)):

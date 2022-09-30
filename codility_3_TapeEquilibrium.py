@@ -49,9 +49,10 @@ each element of array A is an integer within the range [−1,000..1,000].
 """
 
 def solution(A):
-    total=sum(A)-2*A[0]
+    total=sum(A)-2*A[0]###we calculate the total sum to start substracting.
     n=len(A)
     result=abs(total)
+    ### if we substract a number two times, we are substracting it to the first part of the tape and then adding it to the second.
     for i in range(1,n-1):
         total-=2*A[i]
         result=min(result,abs(total))

@@ -70,7 +70,7 @@ solution(A)
 
 
 
-####another solution without n cache usage
+####another solution without no cache usage
 def solution(A):
     n=len(A)
     prefix=[0]*n

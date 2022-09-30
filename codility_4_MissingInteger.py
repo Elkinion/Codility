@@ -25,15 +25,17 @@ N is an integer within the range [1..100,000];
 each element of array A is an integer within the range [−1,000,000..1,000,000].
 """
 
+
 def solution(A):
-    n=len(A)
-    pigeon=[0]*(n+1)
+    n=len(A) 
+    pigeon=[0]*(n+1) ### we make an array to count integers
     for i in range(n):
         if A[i]<=0:
             next
-        else:
+        else: ##only count numbers larger than 0
             pigeon[A[i]-1]=1
         #print(pigeon)
+    ### loop over the counting list and pick the first non existing one.
     for i in range(n+1):
         if pigeon[i]==0:
             return(i+1)

@@ -50,15 +50,15 @@ each element of array A is an integer within the range [1..X].
 """
 
 def solution(X, A):
-    leafs=[0]*(X+1)
-    n=len(A)
+    leafs=[0]*(X+1) ### we make the river
+    n=len(A) ### this is for a loop
     count=0
     for i in range(n):
-        if leafs[A[i]]==0:
+        if leafs[A[i]]==0: ### if the leaf doesnt exist we add it
             count+=1
             leafs[A[i]]=1
         print(leafs)
-        if count==X:
+        if count==X: ### if the leaf completes the river, then the leaf count is X and we end at step i
             return(i)
     return(-1)
     pass

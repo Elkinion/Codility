@@ -47,15 +47,17 @@ N is an integer within the range [2..100,000];
 each element of array A is an integer within the range [−10,000..10,000].
 """
 
+
 def solution(A):
     n=len(A)
     mini=100000
     position=0
-    for i in range(n-1):
-        if (A[i]+A[i+1])/2<mini:
+    ##the main part is that the minimum is the average of two continous or 3 
+    for i in range(n-1): ## we test 2 consecutives
+        if (A[i]+A[i+1])/2<mini: 
             mini=(A[i]+A[i+1])/2
             position=i
-        if i<n-2 and i>0:
+        if i<n-2 and i>0: ## we test 3 consecutives
             if (A[i]+A[i+1]+A[i+2])/3<mini:
                 mini=(A[i]+A[i+1]+A[i+2])/3
                 position=i

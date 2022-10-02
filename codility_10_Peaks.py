@@ -76,29 +76,29 @@ each element of array A is an integer within the range [0..1,000,000,000].
 
 def solution(A):
     n=len(A)
-    peaks=[False]*n
+    peaks=[False]*n ### we make an array to find all peaks and count them
     numpeaks=0
     for i in range(1, n-1):
         if A[i - 1] < A[i] and A[i] > A[i + 1]:
             peaks[i]=True
             numpeaks+=1
-    if numpeaks==0:
+    if numpeaks==0: ## take away the edge case of 0
         return(0)
-    Next=[False]*n
+    Next=[False]*n ## we find the next peak for every possition on a new array
     Next[-1]=-1
     for i in range (n-2,-1,-1):
         if peaks[i]:
             Next[i]=i
         else:
             Next[i]=Next[i+1]
-    divisors=[]
+    divisors=[]  ## we check for divisors under the squareroot
     sqrt=int(n**(1/2))+1
     for i in range(1,sqrt):
         if n%i==0:
             divisors.append(i)
             divisors.append(n//i)
     result=0
-    for i in divisors:
+    for i in divisors: ### for every divisor check of the blocks have different numbers on the next peak list
         pos=0
         while pos<=n:
             if pos+i==n:

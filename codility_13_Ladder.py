@@ -62,7 +62,7 @@ def solution(A, B):
     F[1]=1
     for i in range(2,n+2):
         F[i]=(F[i-1]+F[i-2])%maxb
-    
+    ### calculate the potences in an array
     m=len(A) 
     res=[0]*m
     potenc={}
@@ -71,6 +71,7 @@ def solution(A, B):
     for i in range(2,n+2):
         potenc[i]=potenc[i-1]*2
         print(potenc)
+    ### calculate the answer for every i
     for i in range(m):
         print(F[A[i]],(potenc[B[i]+1]))
         res[i]=F[A[i]]%(potenc[B[i]+1])

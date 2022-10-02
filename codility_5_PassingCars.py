@@ -45,6 +45,7 @@ N is an integer within the range [1..100,000];
 each element of array A is an integer that can have one of the following values: 0, 1.
 """
 
+#### sum the number of zeros until every 1
 
 
 def solution(A):
@@ -71,6 +72,10 @@ solution(A)
 
 
 ####another solution without no cache usage
+
+
+### same but keep the prefix sum directly into the sum
+
 def solution(A):
     n=len(A)
     prefix=[0]*n

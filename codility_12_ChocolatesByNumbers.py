@@ -32,6 +32,8 @@ Write an efficient algorithm for the following assumptions:
 N and M are integers within the range [1..1,000,000,000].
 """
 
+### this is the answer N//gcd(N,M), numbers theory. chiniese residual theorem perhaps?
+
 def gcd(a, b):
     if a % b == 0:
         return b

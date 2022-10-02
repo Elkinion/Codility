@@ -69,14 +69,12 @@ each element of array A is an integer within the range [0..1,000,000,000].
 
 def solution(A):
     n=len(A)
-    peaks=[False]*n
+    peaks=[False]*n ### first we make a list finding all peak positions.
     for i in range(1, n-1):
         if A[i - 1] < A[i] and A[i] > A[i + 1]:
             peaks[i]=True
-    tries=int(n**(1/2))
-    tries=min(len(peaks),tries)
-    
-    Next=[False]*n
+
+    Next=[False]*n ### we make an array signaling for every position where the next peak is located at.
     Next[-1]=-1
     for i in range (n-2,-1,-1):
         if peaks[i]:
@@ -84,16 +82,18 @@ def solution(A):
         else:
             Next[i]=Next[i+1]
     result=0
-    for i in range(tries+2):
+    tries=min(len(peaks), int(n**(1/2)))
+    
+    for i in range(tries+2): ### for every i under the square root or the number of peaks (+2 just in case).
         pos=0
         num=0
         while pos<n and num<i:
-            pos=Next[pos]
+            pos=Next[pos] ### we go to the next possition
             if pos==-1:
                 break 
-            num+=1
+            num+=1 ### we add 1 to the possible number of flags
             pos+=i
-        result=max(result,num)
+        result=max(result,num) ## we take the max between the possible number of flags
     print(Next,tries,peaks)
     return(result)
 

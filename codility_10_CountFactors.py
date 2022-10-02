@@ -25,7 +25,7 @@ N is an integer within the range [1..2,147,483,647].
 def solution(N):
     if N==1:
         return(1)
-    A=int(N**(1/2))+1
+    A=int(N**(1/2))+1 ### we will check until the square root and that wall give us also the divisors that are higher because for every D exist an M
     DivisorCount=0
     for i in range(1,A):
         if N%i==0 and i**2!=N:

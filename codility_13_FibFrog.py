@@ -59,6 +59,8 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [0..100,000];
 each element of array A is an integer that can have one of the following values: 0, 1.
 """
+
+### fibonacci 26 is large enough
 def fib(n):
     F=[0]*(n+2)
     F[0]=1
@@ -68,7 +70,9 @@ def fib(n):
     return(F)
     
 
-def solution(A):
+
+###
+def next(A):
     n=len(A)
     nex=n
     for i in range(n-1,-1,-1):
@@ -77,8 +81,39 @@ def solution(A):
         if A[i]==1:
             A[i]=nex
             nex=i
+    return(A)
+
+
+
+
+
+
+def solution(A):
+    F=fib(26)
+    B=next(A)
+    n=len(A)
+    if n in F:
+        return(1)
+    total=0
+    while B!=[]:
+        position=0
+        while (n-position) not in F:
+            print(position,B[position],B, "not f")
+            position=B[position]
+            print(position,B[position],n-position, "not f")
     print(A)
+    return(total)
+
 
 
 A=[0,0,0,1,1,0,1,0,0,0,0]
 solution(A)
+
+
+
+B=[3, 3, 3, 4, 6, 6, 11, 11, 11, 11, 11]
+
+
+
+
+
